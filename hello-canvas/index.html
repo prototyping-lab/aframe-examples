@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Canvas Demo</title>
+</head>
+    
+<body>
+<script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
+<script src="js/canvas.js"></script>
+
+
+<a-scene start>
+    <a-assets>
+        <canvas id="canvas"></canvas>
+    </a-assets>
+    <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" material="src:#canvas"></a-plane>
+    <a-box position="-1 0.5 -3" rotation="0 0 0" material="src:#canvas" animation="property: rotation; to:0 360 0; loop: true; dur: 10000; easing: linear" ></a-box>
+    <a-sphere position="0 1.25 -5" radius="1.25"  material="src:#canvas" animation="property: rotation; to:0 360 0; loop: true; dur: 10000; easing: linear"  ></a-sphere>
+    <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" material="src:#canvas" animation="property: rotation; to:0 360 0; loop: true; dur: 10000; easing: linear" ></a-cylinder>
+    <a-sky color="#555"></a-sky>
+    <camera wasd-controls position="0 1.6 0"></camera>
+     
+</a-scene>
+    
+</body>
+</html>
