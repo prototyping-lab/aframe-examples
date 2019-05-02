@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Hello Texture</title>
+        <meta name="description" content="Hell Texture">
+        <script src="https://aframe.io/releases/0.9.1/aframe.min.js"></script>
+    </head>
+    <body>
+        <a-scene background="color: #ccc">
+            
+            <!-- custom light sources -->
+            <a-light type="ambient" color="#fff" intensity="0.5"></a-light>
+            <a-light type="directional" color="#fff" intensity="0.5" position="-0.5 1 1"></a-light>
+
+            <!-- texture assets -->
+            <a-assets>
+                <img id="brick_diffuse" src="./img/brick_diffuse.jpg">
+                <img id="brick_normal" src="./img/brick_roughness.jpg">
+                <img id="brick_bump" src="./img/brick_bump.jpg">
+            </a-assets>
+
+            <!-- three boxes -->
+            <a-box material="src:#brick_diffuse" position="-3 1.5 -4" width="2" height="2" depth="2" shadow></a-box>
+            <a-box material="normalMap:#brick_normal" position="0 1.5 -4"  width="2" height="2" depth="2" shadow></a-box>
+            <a-box material="src:#brick_diffuse; normalMap:#brick_normal" position="3 1.5 -4"  width="2" height="2" depth="2" shadow></a-box>
+            
+        </a-scene>
+
+    </body>
+</html> 
