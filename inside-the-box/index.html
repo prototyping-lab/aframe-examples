@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Bauhaus-Lab Textures</title>
+        <meta name="description" content="Hello, WebVR! • A-Frame">
+        <script src="https://aframe.io/releases/0.9.1/aframe.min.js"></script>
+    </head>
+    <body>
+        ⁄
+        <a-scene background="color:#556">
+
+            <a-assets>
+                <img id="bottom" src="./img/placeholder-xxl/texture-bottom.png">
+                <img id="top"    src="./img/placeholder-xxl/texture-top.png">
+                <img id="north"  src="./img/placeholder-xxl/texture-north.png">
+                <img id="south"  src="./img/placeholder-xxl/texture-south.png">
+                <img id="east"   src="./img/placeholder-xxl/texture-east.png">
+                <img id="west"   src="./img/placeholder-xxl/texture-west.png">
+            </a-assets>
+
+            <!-- custom light sources -->
+            <a-light type="ambient" color="#fff" intensity="0.9"></a-light>
+            <a-light type="directional" color="#fff" intensity="0.0" position="-0.5 1 1"></a-light>
+
+
+            <!-- the room -->
+            <a-entity position="0 1 0" scale="0.5 0.5 0.5">
+            
+                <!-- bottom  -->
+                <a-entity position="0 0 0">
+                    <a-entity rotation="-90 0 0">
+                        <a-plane material="src:#bottom; side:double" width="7.44" height="3.22" ></a-plane>
+                    </a-entity>
+                </a-entity>
+
+                <!-- top -->
+                <a-entity position="0 2.36 0">
+                    <a-entity rotation="+90 0 0">
+                        <a-plane material="src:#top; side:double" width="7.44" height="3.22" ></a-plane>
+                    </a-entity>
+                </a-entity>
+
+                <!-- south -->
+                <a-entity position="0 1.18 1.61">
+                    <a-entity rotation="0 0 0">
+                            <a-plane material="src:#south; side:double" width="7.44" height="2.36" ></a-plane>
+                    </a-entity>
+                </a-entity>
+                        
+                <!-- north -->
+                <a-entity position="0 1.18 -1.61">
+                    <a-entity rotation="0 180 0">
+                        <a-plane material="src:#north; side:double" width="7.44" height="2.36" ></a-plane>
+                    </a-entity>
+                </a-entity>
+   
+                <!-- east -->
+                <a-entity position="3.72 1.18 0">
+                    <a-entity rotation="0 -90 0">
+                        <a-plane material="src:#east; side:double" width="3.22" height="2.36" ></a-plane>
+                    </a-entity>
+                </a-entity>
+                
+                <!-- west -->
+                <a-entity position="-3.72 1.18 0">
+                    <a-entity rotation="0 -90 0">
+                        <a-plane material="src:#west; side:double" width="3.22" height="2.36" ></a-plane>
+                    </a-entity>
+                </a-entity>
+                
+             </a-entity>
+
+        </a-scene>
+
+    </body>
+</html> 
