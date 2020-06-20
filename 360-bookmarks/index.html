@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>360° Bookmarks</title>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aframe-canvas-text@0.0.8/components/canvas-text.min.js"></script>
+    <script src="components/bookmark.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+        <a-mixin id="text" canvas-text="size:24; color:#000; align:center;" position="0 0 .01"></a-mixin>
+        <a-asset-item id="unicorn" src="models/Mesh_Unicorn.gltf"></a-asset-item>
+        <a-asset-item id="unicorn2" src="models/Unicorn.gltf"></a-asset-item>
+        <a-asset-item id="imac" src="models/iMac_01.gltf"></a-asset-item>
+      </a-assets>
+      <a-entity id="camera" camera look-controls>
+        <a-entity cursor="rayOrigin:mouse;"></a-entity>
+        <!-- BEGIN HUD -->
+        <a-entity position="-2 -1.5 -2">
+          <a-entity bookmark></a-entity>
+          <a-entity mixin="text" canvas-text="value:unicorn 1"></a-entity>
+        </a-entity>
+        <a-entity position="-0.66 -1.5 -2">
+          <a-entity bookmark="direction:120 15 0"></a-entity>
+          <a-entity mixin="text" canvas-text="value:unicorn 2"></a-entity>
+        </a-entity>
+        <a-entity position="0.66 -1.5 -2">
+          <a-entity bookmark="direction:0 45 0"></a-entity>
+          <a-entity mixin="text" canvas-text="value:dominik"></a-entity>
+        </a-entity>
+        <a-entity position="2 -1.5 -2">
+          <a-entity bookmark="direction:80 0"></a-entity>
+          <a-entity mixin="text" canvas-text="value:imacs"></a-entity>
+        </a-entity>
+        <!-- END HUD -->
+      </a-entity>
+      <a-entity id="world">
+        <a-sky src="panos/MULTISHOT_0227_pixelize.jpg" rotation="0 -90 0"></a-sky>
+        <a-entity position="220 10 -100" scale="0.3 0.3 0.3" rotation="-90 180 0" gltf-model="#imac"></a-entity>
+        <a-entity position="220 10 -200" scale="0.3 0.3 0.3" rotation="-90 180 0" gltf-model="#imac"></a-entity>
+        <a-entity position="-20 -50 -200" scale="1 1 1" gltf-model="#unicorn"></a-entity>
+        <a-entity position="200 -250 100" rotation="0 -90 0" scale="1 1 1" gltf-model="#unicorn2"></a-entity>
+      </a-entity>
+    </a-scene>
+  </body>
+</html>
