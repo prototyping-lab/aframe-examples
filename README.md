@@ -1,8 +1,10 @@
-Some A-Frame examples developed at the iLab.  
-With a focus on *Typography*.
+# A-Frame examples.
+
+Developed at iLab and Prototyping-Lab.
 
 - [hello world](hello-world)
 - [hello canvas](hello-canvas)
 - [hello texture](hello-texture) 
 - [svg-extruder](svg-extruder) 
-- [post-processing](post-processing) 
+- [post-processing](post-processing)
+- [360-bookmarks](360-bookmarks) 
