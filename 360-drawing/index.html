@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Canvas Demo</title>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-orbit-controls@1.2.0/dist/aframe-orbit-controls.min.js"></script>
+    <script src="js/paper.js"></script>
+    <script src="js/drawable.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-entity camera orbit-controls="minPolarAngle: 0; maxPolarAngle: 80; minDistance:3; initialPosition: 3 3 0; maxDistance:10"></a-entity>
+      <a-entity cursor="rayOrigin:mouse" raycaster="objects: [drawable]"></a-entity>
+      <a-assets>
+        <canvas id="sky"></canvas>
+        <canvas id="canvas1"></canvas>
+        <canvas id="canvas2"></canvas>
+        <canvas id="canvas3"></canvas>
+        <canvas id="canvas4"></canvas>
+      </a-assets>
+      <a-entity position="0 0 0" rotation="0 0 0">
+        <a-plane paper drawable position="0 0 0" rotation="-90 0 0" width="4" height="4" material="src:#canvas1">
+        </a-plane>
+        <a-box paper="fillStyle: #f99" drawable position="-1 0.5 1" rotation="0 0 0" material="src:#canvas2"> </a-box>
+        <a-sphere paper="fillStyle: #ff9" drawable position="0 1.25 -1" radius="1.25" material="src:#canvas3"> </a-sphere>
+        <a-cylinder paper="fillStyle: #99f" drawable position="1 0.75 1" radius="0.5" height="1.5" material="src:#canvas4"></a-cylinder>
+      </a-entity>
+      <a-sky paper="fillStyle: #ddf; strokeStyle:#fff" drawable material="src:#sky"></a-sky>
+    </a-scene>
+  </body>
+</html>

@@ -7,4 +7,5 @@ Developed at iLab and Prototyping-Lab.
 - [hello texture](hello-texture) 
 - [svg-extruder](svg-extruder) 
 - [post-processing](post-processing)
-- [360-bookmarks](360-bookmarks) 
+- [360-bookmarks](360-bookmarks)
+- [360-drawing](360-drawing)
