@@ -9,3 +9,4 @@ Developed at iLab and Prototyping-Lab.
 - [post-processing](post-processing)
 - [360-bookmarks](360-bookmarks)
 - [360-drawing](360-drawing)
+- [video-player](video-player)
