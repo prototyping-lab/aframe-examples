@@ -10,3 +10,4 @@ Developed at iLab and Prototyping-Lab.
 - [360-bookmarks](360-bookmarks)
 - [360-drawing](360-drawing)
 - [video-player](video-player)
+- [walk-around](walk-around)
