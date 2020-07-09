@@ -1,5 +1,4 @@
 <html>
-
   <head>
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js"></script>
@@ -14,13 +13,11 @@
         <img id="sky" src="img/sky.jpg" />
       </a-assets>
       <a-sky src="#sky"></a-sky>
-      <a-entity id="rig" position="0 1.7 0" movement-controls="constrainToNavMesh: true">
-        <a-entity camera look-controls="pointerLockEnabled: true">
-        </a-entity>
+      <a-entity id="rig" movement-controls="constrainToNavMesh: true">
+        <a-entity position="0 1.7 0" camera look-controls="pointerLockEnabled: true"> </a-entity>
       </a-entity>
       <a-entity position="-4 -0.5 2" gltf-model="#room"></a-entity>
-      <a-entity visible="false" position="0 1.7 0" gltf-model="#navmesh" nav-mesh></a-entity>
+      <a-entity visible="false" gltf-model="#navmesh" nav-mesh></a-entity>
     </a-scene>
   </body>
-  
 </html>
