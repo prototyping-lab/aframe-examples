@@ -1,0 +1,100 @@
+<html>
+
+  <head>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js"></script>
+	<script src="js/markers.js"></script>
+  </head>
+
+  <body>
+
+	<a-scene>
+	
+		<a-assets>
+			<a-mixin id="red"  material="color:#a66"></a-mixin>
+			<a-mixin id="blue"  material="color:#66a"></a-mixin>
+			<a-mixin id="black"  material="color:#666"></a-mixin>
+			<a-mixin id="wireframe" material="wireframe: true"></a-mixin>
+			<a-mixin id="translucent"  material="opacity: 0.7; transparent: true"></a-mixin>
+			<a-mixin id="transparent"  material="opacity: 0.0; transparent: true"></a-mixin>
+			<a-mixin id="ring" geometry="primitive: ring; radiusInner: 0.45; radiusOuter: 0.5; segmentsPhi: 1">
+			<a-mixin id="disk" geometry="primitive: circle; radius: 0.5;">
+			<a-mixin id="disk-cushion" geometry="primitive: disk-3d; bevel: true;">
+			<a-mixin id="disk-3d" geometry="primitive: disk-3d">
+			<a-mixin id="ring-3d" geometry="primitive: torus; radius: 0.5; radiusTubular: 0.01; segmentsRadial: 8"></a-mixin>
+			<a-mixin id="triangle" geometry="primitive: triangle"></a-mixin>
+			<a-mixin id="heart" geometry="primitive: heart"></a-mixin>
+			<a-mixin id="heart-3d" geometry="primitive: heart-3d"></a-mixin>
+			<a-mixin id="heart-cushion" geometry="primitive: heart-3d; bevel: true"></a-mixin>
+			<a-mixin id="disk-cushion" geometry="primitive: disk-3d; bevel: false"></a-mixin>
+			<a-mixin id="arrow" geometry="primitive: arrow"></a-mixin>
+			<a-mixin id="cross" geometry="primitive: cross"></a-mixin>
+			<a-mixin id="marker" checkpoint rotation="-90 0 0"></a-mixin>
+		</a-assets>
+	
+		<a-sky color="#ECECEC"></a-sky>
+
+		<a-entity position="0 0 30" id="rig" movement-controls="controls: checkpoint" checkpoint-controls="mode: .marker">
+			<a-entity camera
+					position="0 1.6 0"
+					look-controls="reverseTouchDrag: false" >
+					<a-entity cursor="rayOrigin:mouse" raycaster="objects: [checkpoint]"></a-entity>
+			</a-entity>
+		</a-entity>
+
+		<a-entity id="cabin">
+			<a-entity id="floor" geometry="primitive: plane; height: 60; width: 6.50" material="color:#eee;" rotation="-90 0 0"></a-entity>
+			<a-entity id="left-wall" geometry="primitive: plane; height: 3; width: 60" position="-3.25 1.50 0" material="color:#eee;" rotation="0 90 0"></a-entity>
+			<a-entity id="right-wall" geometry="primitive: plane; height: 3; width: 60" position="3.25 1.50 0" material="color:#eee;" rotation="0 270 0"></a-entity>
+		</a-entity>
+
+		<a-entity class="marker" position="0 0.1 24" mixin="black translucent marker disk"></a-entity>
+
+		<a-entity position="0 0.1 22">
+			<a-entity mixin="black translucent marker ring"></a-entity>
+			<a-entity mixin="transparent marker disk" ></a-entity>
+		</a-entity>
+		
+		<a-entity position="0 0.1 20" mixin="black translucent marker arrow"></a-entity>
+		<a-entity position="0 0.1 18" mixin="red translucent marker heart" ></a-entity>
+	
+		<a-entity position="0 0.1 16">
+			<a-entity mixin="black translucent marker cross" rotation="-90 0 45"></a-entity>
+			<a-entity mixin="transparent marker disk"></a-entity>
+		</a-entity>
+	
+		<a-entity position="0 0.1 14">
+			<a-entity mixin="red translucent marker ring" geometry="radiusInner: 0.25; radiusOuter: 0.3"></a-entity>
+			<a-entity mixin="blue translucent marker ring" geometry="radiusInner: 0.35; radiusOuter: 0.4"></a-entity>
+			<a-entity mixin="black translucent marker ring" geometry="radiusInner: 0.45; radiusOuter: 0.5"></a-entity>
+			<a-entity mixin="transparent marker disk" ></a-entity>
+		</a-entity> 
+
+		<a-entity position="0 0.1 12">
+			<a-entity mixin="translucent black marker ring-3d"></a-entity>
+			<a-entity mixin="transparent marker disk" ></a-entity>
+		</a-entity>
+
+		<a-entity position="0 0.1 10" mixin="blue translucent marker disk-3d" ></a-entity>
+		<a-entity position="0 0.1 8" mixin="red translucent marker heart-3d" ></a-entity>
+		<a-entity position="0 0.1 6" mixin="blue translucent marker disk-cushion"></a-entity>
+		<a-entity position="0 0.1 4" mixin="red translucent marker heart-cushion"></a-entity>
+		
+		
+		<a-entity position="0 0.1 2">
+			<a-entity mixin="blue translucent marker disk-cushion" material="opacity: 0.7" geometry="radius: 0.4" position="0 0.1 0"></a-entity>
+			<a-entity mixin="blue translucent marker disk-cushion" material="opacity: 0.5" geometry="radius: 0.45" position="0 0.05 0" ></a-entity>
+			<a-entity mixin="blue translucent marker disk-cushion" material="opacity: 0.2" geometry="radius: 0.5" position="0 0.0 0" ></a-entity>
+		</a-entity> 
+
+		<a-entity position="0 0.1 0">
+			<a-entity mixin="red translucent marker heart-cushion" material="opacity: 0.7" geometry="radius: 0.4" position="0 0.1 0"></a-entity>
+			<a-entity mixin="red translucent marker heart-cushion" material="opacity: 0.5" geometry="radius: 0.45" position="0 0.05 0" ></a-entity>
+			<a-entity mixin="red translucent marker heart-cushion" material="opacity: 0.2" geometry="radius: 0.5" position="0 0.0 0" ></a-entity>
+		</a-entity> 
+
+
+	</a-scene>
+  </body>
+</html>
+
