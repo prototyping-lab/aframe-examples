@@ -12,3 +12,4 @@ Developed at iLab and Prototyping-Lab.
 - [video-player](video-player)
 - [walk-around](walk-around)
 - [checkpoints](checkpoints)
+- [google-poly](google-poly)

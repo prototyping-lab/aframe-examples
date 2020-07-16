@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>A-Frame from Poly</title>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script> 
+    <script src="https://unpkg.com/aframe-environment-component"></script>
+    <script src="https://unpkg.com/aframe-orbit-controls@1.2.0/dist/aframe-orbit-controls.min.js"></script> 
+    <script src="https://unpkg.com/aframe-google-poly-component@1.0.0/dist/aframe-google-poly-component.min.js"></script> 
+  </head>
+  <body>
+    <a-scene environment="preset: forest; shadow: true; lightPosition: -4 4 5;" shadow="type: pcfsoft" >
+      <a-entity camera orbit-controls="target: 0 0.55 0; minDistance: 1; maxDistance: 5; initialPosition: 0 0.1 2; minPolarAngle: 0; maxPolarAngle: 90;"></a-entity>
+      <a-entity id="unicorn" position="0 0.55 0" google-poly="src: 212RNECqFCA" shadow="receive: false; cast: true" ></a-entity>
+    </a-scene>
+    <script>
+
+      var apikey = window.prompt("Enter your Poly API-Key");
+      var e = document.querySelector("#unicorn");
+      e.setAttribute("google-poly", "apiKey", apikey);
+
+    </script>
+  </body>
+</html>
