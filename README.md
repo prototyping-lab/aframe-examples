@@ -13,3 +13,5 @@ Developed at iLab and Prototyping-Lab.
 - [walk-around](walk-around)
 - [checkpoints](checkpoints)
 - [google-poly](google-poly)
+- [fibonacci-sphere](fibonacci-sphere)
+- [random-sphere](random-sphere)

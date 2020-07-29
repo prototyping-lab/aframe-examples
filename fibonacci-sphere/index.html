@@ -1,0 +1,50 @@
+<html>
+  <head>
+    <title>Basic</title>
+    <meta name="description" content="Seeing other people's head movements"></meta>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-look-at-component@1.0.0/dist/aframe-look-at-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-entity-generator-component@3.0.2/dist/aframe-entity-generator-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-randomizer-components@3.0.2/dist/aframe-randomizer-components.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js"></script>
+    <script src="js/fibonacci.js"></script>
+    <script src="js/switch.js"></script>
+    <script src="js/look-at-once.js"></script>
+  </head>
+  <body>
+      <a-scene>
+        <a-assets>
+          <a-mixin id="poster-1" geometry="primitive:plane; height:20; width: 20;" material="src: #image; transparent:true; opacity:1.0"></a-mixin>
+          <a-mixin id="poster-2" geometry="primitive:plane; height:10; width: 10;" material="src: #image; transparent:true; opacity:1.0"></a-mixin>
+          <a-mixin id="poster-3" geometry="primitive:plane; height:5; width: 5;" material="src: #image; transparent:true; opacity:1.0"></a-mixin>
+          <a-mixin id="hemisphere-position" fibonacci-spherical-position="radius: 10; startX: 0; lengthX: 180; lengthY:180"></a-mixin>
+          <a-mixin id="sphere-position" fibonacci-spherical-position="radius: 30"></a-mixin>
+          <a-mixin id="inwards" look-at="0 0 0"></a-mixin> 
+          <a-mixin id="translucent" material="transparent:true; opacity:0.5"></a-mixin>
+          <img id="image" src="img/image.jpg">
+        </a-assets>
+        
+        <a-entity id="rig" random-position="min: -5 0 -5; max: 5 0 5" look-at-once="#plane" movement-controls="constrainToNavMesh: true">
+            <a-entity position="0 1.7 0" camera look-controls ></a-entity>
+        </a-entity>
+        
+        <!-- Scene. -->
+        <a-sky color="#222"></a-sky>
+
+
+        <a-entity switch="1">
+          <a-entity entity-generator="mixin: poster-1 sphere-position inwards; num: 100"></a-entity>
+        </a-entity>
+
+        <a-entity switch="2">
+          <a-entity entity-generator="mixin: poster-2 sphere-position inwards; num: 100"></a-entity>
+        </a-entity>
+
+        <a-entity switch="3">
+          <a-entity entity-generator="mixin: poster-3 sphere-position inwards; num: 100"></a-entity>
+        </a-entity>
+
+        <a-plane nav-mesh id="plane" rotation="-90 0 0" material="color:#fff;transparent:true; opacity:0.7" height="10" width="10" position="0 -0.1 0" ></a-plane>
+    </a-scene>
+  </body>
+</html>
