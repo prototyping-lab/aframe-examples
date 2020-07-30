@@ -15,3 +15,4 @@ Developed at iLab and Prototyping-Lab.
 - [google-poly](google-poly)
 - [fibonacci-sphere](fibonacci-sphere)
 - [random-sphere](random-sphere)
+- [virtual-hfg](virtual-hfg)

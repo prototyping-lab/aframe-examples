@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Virtual HfG</title>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-look-at-component@1.0.0/dist/aframe-look-at-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-entity-generator-component@3.0.2/dist/aframe-entity-generator-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-randomizer-components@3.0.2/dist/aframe-randomizer-components.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js"></script>
+    <script src="js/fibonacci.js"></script>
+    <script src="js/look-at-once.js"></script>
+    <script src="js/marker.js"></script>
+    <script src="js/insta.js"></script>
+  </head>
+    <body>
+
+    <a-scene fog="type: linear; color: #fff; far: 25; near: 0">
+
+        <a-entity position="0 0 3" id="rig" movement-controls="controls: checkpoint" checkpoint-controls="mode: .marker">
+          <a-entity camera
+              position="0 1.6 0"
+              look-controls="reverseTouchDrag:false" >
+              <a-entity cursor="rayOrigin:mouse" raycaster="objects: [checkpoint]"></a-entity>
+          </a-entity>
+        </a-entity>
+
+        <a-assets id="assets">
+
+            <a-asset-item id="Mac" src="assets/Mac-1.gltf"></a-asset-item>
+            <a-asset-item id="Mac2" src="assets/Mac-2.gltf"></a-asset-item>
+            <a-asset-item id="Tisch" src="assets/Tisch.gltf"></a-asset-item>
+            <a-asset-item id="Saeule" src="assets/Saeule.gltf"></a-asset-item>
+            <a-asset-item id="Karte" src="assets/Karte.gltf"></a-asset-item>
+            <a-asset-item id="Bank" src="assets/Bank.gltf"></a-asset-item>
+            <a-asset-item id="Plakat" src="assets/Plakat.gltf"></a-asset-item>
+            <a-asset-item id="Vase" src="assets/Vase.gltf"></a-asset-item>
+            <a-asset-item id="Schrift" src="assets/Schrift.gltf"></a-asset-item>
+            <a-asset-item id="Wand" src="assets/Wand.gltf"></a-asset-item>
+            <a-asset-item id="Tuere" src="assets/Tuer.gltf"></a-asset-item>
+
+            <img id="Parkett" src="assets/Parkett.jpg">
+
+            <a-mixin id="marker" checkpoint rotation="-90 0 0"></a-mixin>
+            <a-mixin id="black"  material="color:#fff"></a-mixin>
+            <a-mixin id="translucent"  material="opacity: 0.7; transparent: true"></a-mixin>
+            <a-mixin id="disk" geometry="primitive: circle; radius: 0.6;"></a-mixin>
+
+            <a-mixin id="hemisphere" fibonacci-spherical-position="radius: 6; samples:100"></a-mixin>
+            <a-mixin id="inwards" look-at="0 0 0"></a-mixin> 
+            <a-mixin id="poster" geometry="primitive:plane; height:2; width: 2;" material="transparent:true; opacity:1.0"></a-mixin>
+      
+        </a-assets>
+
+        <!--around the plant-->
+        <a-entity class="marker" position="0 0 -2.5" mixin="black translucent marker disk"></a-entity>
+        <a-entity class="marker" position="-1.78 0 -1.78" mixin="black translucent marker disk"></a-entity>
+        <a-entity class="marker" position="-2.5 0 0" mixin="black translucent marker disk"></a-entity>
+        <a-entity class="marker" position="1.78 0 1.78" mixin="black translucent marker disk"></a-entity>
+        <a-entity class="marker" position="0 0 2.5" mixin="black translucent marker disk"></a-entity>
+        <a-entity class="marker" position="1.78 0 -1.78" mixin="black translucent marker disk"></a-entity>
+        <a-entity class="marker" position="2.5 0 0" mixin="black translucent marker disk"></a-entity>
+        <a-entity class="marker" position="-1.78 0 1.78" mixin="black translucent marker disk"></a-entity>
+
+        <!-- path to the panopticum-->
+        <a-entity class="marker" position="0 0 5" mixin="black translucent marker disk"></a-entity>
+        <a-entity class="marker" position="0 0 7" mixin="black translucent marker disk"></a-entity>
+        <a-entity class="marker" position="0 0 10" mixin="black translucent marker disk"></a-entity>
+        <a-entity class="marker" position="0 0 12.5" mixin="black translucent marker disk"></a-entity>
+        <a-entity class="marker" position="0 0 15" mixin="black translucent marker disk"></a-entity>
+        <a-entity class="marker" position="0 0 17.5" mixin="black translucent marker disk"></a-entity>
+  
+        <a-entity class="marker" position="0 0 27.5" mixin="black translucent marker disk"></a-entity>
+        <a-entity class="marker" position="0 0 30" mixin="black translucent marker disk"></a-entity>
+
+        <!-- path to the right: coffee pool-->
+        <a-entity class="marker" position="2.5 0 15" mixin="black translucent marker disk"></a-entity>
+        <a-entity class="marker" position="5 0 15" mixin="black translucent marker disk"></a-entity>
+        <a-entity class="marker" position="7.5 0 15" mixin="black translucent marker disk"></a-entity>
+        <a-entity class="marker" position="10 0 15" mixin="black translucent marker disk"></a-entity>
+
+        <!-- path to the left: mensa heaven -->
+        <a-entity class="marker" position="-2.5 0 15" mixin="black translucent marker disk"></a-entity>
+        <a-entity class="marker" position="-5 0 15" mixin="black translucent marker disk"></a-entity>
+        <a-entity class="marker" position="-7.5 0 15" mixin="black translucent marker disk"></a-entity>
+        <a-entity class="marker" position="-10 0 15" mixin="black translucent marker disk"></a-entity>
+
+        <!--around germany-->
+        <a-entity position="0 0 23">
+          <a-entity class="marker" position="0 0 -2.5" mixin="black translucent marker disk"></a-entity>
+          <a-entity class="marker" position="-1.78 0 -1.78" mixin="black translucent marker disk"></a-entity>
+          <a-entity class="marker" position="-2.5 0 0" mixin="black translucent marker disk"></a-entity>
+          <a-entity class="marker" position="1.78 0 1.78" mixin="black translucent marker disk"></a-entity>
+          <a-entity class="marker" position="0 0 2.5" mixin="black translucent marker disk"></a-entity>
+          <a-entity class="marker" position="1.78 0 -1.78" mixin="black translucent marker disk"></a-entity>
+          <a-entity class="marker" position="2.5 0 0" mixin="black translucent marker disk"></a-entity>
+          <a-entity class="marker" position="-1.78 0 1.78" mixin="black translucent marker disk"></a-entity>
+        </a-entity>
+       
+        
+        <!-- geladene Modelle -->
+        <a-entity animation="easing: linear; property: rotation; to: 0 -360 0; loop: true; dur: 50000"  gltf-model="#Vase" position="0 0 0" scale="6 6 6"></a-entity>
+       
+        <!-- Empfang -->
+        <a-entity gltf-model="#Wand" material="color: red" position="-4 0 22.5" rotation="0 90 0"></a-entity>
+        <a-entity gltf-model="#Wand" position="4 0 25" scale="1 1 -1" rotation="0 90 0"></a-entity>
+        <a-entity gltf-model="#Tuere" position="0 0 19" rotation=""></a-entity>
+        <a-entity gltf-model="#Karte" position="0 0.01 24.75" rotation="-90 0 0" scale="2 2 1"></a-entity>
+
+        <!-- Mensa-Tische -->
+          <a-entity  position="-15 0 15" rotation="0 0 0">
+            <a-entity position="0 0 -1">
+              <a-entity gltf-model="#Bank" position="3 0 0"></a-entity>
+              <a-entity gltf-model="#Bank" position="0 1 0" rotation="0 0 -30"></a-entity>
+              <a-entity gltf-model="#Bank" position="-2.5 3.5 0" rotation="0 0 -60"></a-entity>
+              <a-entity gltf-model="#Bank" position="-3.5 6.5 0" rotation="0 0 -90"></a-entity>
+            </a-entity>
+            <a-entity position="0 0 1">
+                <a-entity gltf-model="#Bank" position="3 0 0"></a-entity>
+                <a-entity gltf-model="#Bank" position="0 1 0" rotation="0 0 -30"></a-entity>
+                <a-entity gltf-model="#Bank" position="-2.5 3.5 0" rotation="0 0 -60"></a-entity>
+                <a-entity gltf-model="#Bank" position="-3.5 6.5 0" rotation="0 0 -90"></a-entity>
+              </a-entity>
+          </a-entity>
+
+          <a-entity  position="15 0 15" rotation="0 180 0">
+              <a-entity position="0 0 -1">
+                <a-entity gltf-model="#Tisch" position="3 0 0"></a-entity>
+                <a-entity gltf-model="#Tisch" position="0 1 0" rotation="0 0 -30"></a-entity>
+                <a-entity gltf-model="#Tisch" position="-2.5 3.5 0" rotation="0 0 -60"></a-entity>
+                <a-entity gltf-model="#Tisch" position="-3.5 6.5 0" rotation="0 0 -90"></a-entity>
+              </a-entity>
+              <a-entity position="0 0 1">
+                  <a-entity gltf-model="#Tisch" position="3 0 0"></a-entity>
+                  <a-entity gltf-model="#Tisch" position="0 1 0" rotation="0 0 -30"></a-entity>
+                  <a-entity gltf-model="#Tisch" position="-2.5 3.5 0" rotation="0 0 -60"></a-entity>
+                  <a-entity gltf-model="#Tisch" position="-3.5 6.5 0" rotation="0 0 -90"></a-entity>
+                </a-entity>
+            </a-entity>
+
+
+        <!-- Saeulen -->
+        <a-entity gltf-model="#Schrift" scale="7 7 7" position="0 4.25 10"></a-entity>
+        <a-entity gltf-model="#Saeule" scale="2 2 2" position="-2 0 10"></a-entity>
+        <a-entity gltf-model="#Saeule" scale="2 2 2" position="2 0 10"></a-entity>
+        <a-entity gltf-model="#Saeule" scale="2 2 2" position="-6 0 10"></a-entity>
+        <a-entity gltf-model="#Saeule" scale="2 2 2" position="6 0 10"></a-entity>
+
+      <!--KaffeePool-->
+      <!--
+      <a-entity gltf-model="#Kaffee_Pool" scale="0.5 0.5 0.5" position="20 0 12" rotation="0 -45 0"></a-entity>
+      -->
+      <!--KaffeePool-->
+
+
+        <!-- Macs -->    
+   
+        <a-entity  position="-1 1 28" look-at="[camera]">
+            <a-entity gltf-model="#Mac2" rotation="0 0 0"></a-entity>
+        </a-entity>    
+
+        <a-entity  position="2 1 25.5" look-at="[camera]">
+            <a-entity gltf-model="#Mac" rotation="0 0 0"></a-entity>
+        </a-entity>    
+
+        <!--sphere-->
+         <a-entity insta="url:assets/Insta.json" id="sphere" animation="easing: linear; property: rotation; to: 0 360 0; loop: true; dur: 100000" position="0 0 0" entity-generator="mixin: poster hemisphere inwards; num: 50"></a-entity>
+         <a-plane  material="opacity:1; src:#Parkett; repeat: 100 100" height="200" width="200" rotation="-90 0 0" position="0 -0.1 0" ></a-plane>
+</a-scene>
+
+
+  </body>
+</html>
