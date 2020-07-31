@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Flat-Map</title>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script> 
+    <script src="https://unpkg.com/aframe-environment-component"></script>
+    <script src="https://unpkg.com/aframe-look-at-component@1.0.0/dist/aframe-look-at-component.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js"></script>
+    <script src="https://unpkg.com/aframe-randomizer-components@3.0.2/dist/aframe-randomizer-components.min.js"></script>
+    <script src="https://unpkg.com/aframe-entity-generator-component@3.0.2/dist/aframe-entity-generator-component.min.js"></script>
+    <script src="js/alpha-test.js"></script>
+  </head>
+  <body>
+    <a-scene >
+      <a-sky color="#336"></a-sky>
+
+
+      <a-assets>
+        <img id="map" src="img/map-2048.png">
+        <img id="pin-img" src="img/pin-white-512.png">
+        <img id="grid-img" src="img/grid-white-64.png">
+        <a-mixin id="pin" geometry="primitive:plane; height:0.5; width: 0.5;" look-at="#pin-target" material="src:#pin-img; transparent:true; opacity:0.8; shader:flat" ></a-mixin>
+        <a-mixin id="scatter"  alpha-test  random-position="min:-2 0 -3; max: 2 0 3"></a-mixin>
+        <a-mixin id="grid"  geometry="primitive: plane; width: 256; height: 256;" position="0 -0.26 0" rotation="-90 0 0"
+        material="src: #grid-img; repeat: 512 512; transparent: true; opacity:0.3; side:double; depthTest:false"></a-mixin>
+s
+     </a-assets>
+
+      <a-entity movement-controls="speed: 0.2" position="0 0 6"  >
+        <a-entity position="0 0 0" id="pin-target" ></a-entity>
+        <a-entity camera look-controls position="0 1.6 0"></a-entity>
+      </a-entity>
+
+      <a-entity mixin="grid" geometry="primitive: plane; width: 7;  height: 256;"  material="repeat: 14 512;" ></a-entity>
+      <a-entity mixin="grid" position="-3.5 0.25 0" rotation="0 90 0"></a-entity>
+      <a-entity mixin="grid" position="3.5 0.25 0" rotation="0 -90 0"></a-entity>
+    
+      <a-plane material="src:#map; transparent:false; opacity:0.5" position="0 -0.25 0" rotation="-90 0 0" scale="8 8 1"></a-plane>
+      <a-entity entity-generator="mixin: pin scatter; num: 100"></a-entity>
+ 
+    </a-scene>
+
+  </body>
+</html>
