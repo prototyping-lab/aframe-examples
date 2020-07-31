@@ -1,7 +1,8 @@
+<!DOCTYPE html>
 <html>
   <head>
-    <title>Basic</title>
-    <meta name="description" content="Seeing other people's head movements"></meta>
+    <meta charset="utf-8">
+    <title>Random Sphere</title>
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-look-at-component@1.0.0/dist/aframe-look-at-component.min.js"></script>
     <script src="https://unpkg.com/aframe-entity-generator-component@3.0.2/dist/aframe-entity-generator-component.min.js"></script>
@@ -9,6 +10,7 @@
     <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js"></script>
     <script src="js/look-at-once.js"></script>
     <script src="js/switch.js"></script>
+    <script src="js/insta.js"></script>
   </head>
   <body>
       <a-scene>
@@ -17,6 +19,7 @@
           <a-mixin id="poster-2" geometry="primitive:plane; height:8; width: 8;" material="transparent:true; opacity:0.5" random-color></a-mixin>
           <a-mixin id="poster-3" geometry="primitive:plane; height:8; width: 8;" material="src: #image"></a-mixin>
           <a-mixin id="poster-4" geometry="primitive:plane; height:8; width: 8;" material="src: #image; transparent:true; opacity:0.5"></a-mixin>
+          <a-mixin id="poster-5" geometry="primitive:plane; height:8; width: 8;" material="transparent:true; opacity:0.5"></a-mixin>
           <a-mixin id="hemisphere-position" random-spherical-position="radius: 10; startX: 0; lengthX: 180; lengthY:180"></a-mixin>
           <a-mixin id="sphere-position" random-spherical-position="radius: 10"></a-mixin>
           <a-mixin id="inwards" look-at="0 0 0"></a-mixin> 
@@ -49,7 +52,7 @@
         </a-entity>
 
         <a-entity switch="5">
-          <a-entity entity-generator="mixin: poster-4 sphere-position inwards ; num: 100 "></a-entity>
+          <a-entity  insta="url:data/insta.json"  entity-generator="mixin: poster-5 sphere-position inwards ; num: 300 "></a-entity>
         </a-entity>
       
         <a-plane nav-mesh id="plane" rotation="-90 0 0" material="color:#fff;transparent:true; opacity:0.7" height="10" width="10" position="0 -0.1 0" ></a-plane>
