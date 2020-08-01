@@ -16,4 +16,4 @@ Developed at iLab and Prototyping-Lab.
 - [fibonacci-sphere](fibonacci-sphere)
 - [random-sphere](random-sphere)
 - [virtual-hfg](virtual-hfg)
-- [virtual-hfg](flat-map)
+- [flat-map](flat-map)
