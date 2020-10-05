@@ -1,0 +1,121 @@
+<head>
+  <title>My A-Frame Scene</title>
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+  <script src="https://supereggbert.github.io/aframe-htmlembed-component/dist/build.js"></script>
+  <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
+  <script src="https://unpkg.com/aframe-presentation-component@1.0.3/dist/aframe-presentation-component.min.js"></script>
+  <style>
+    [htmlembed] {
+      background-color:rgba(255, 255, 255, 0.5);
+      width: 1003px;
+      height: 565px;
+      padding: 10px;
+    }
+    section {
+      background-color:rgba(255, 255, 255, 0.5);
+      padding: 5px 10px;
+      margin: 10px 0px;
+    }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: x-large;
+    }
+    .button {
+      display: inline-block;
+      border-radius: 5px;
+      padding: 5px;
+      background-color: #dddddd;
+      color: #000000;
+    }
+    .button:hover {
+      background-color: #000000;
+      color: #ffffff;
+    }
+    .logo {
+      width: 300px;
+      position:absolute;
+      right: 0px;
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+    .pic {
+      max-width: 1003px;
+      max-height: 565px;
+    }
+    .pic {
+      border: 1px solid gray;
+    }
+    #aframe-presentation-progress-bar {
+      background-color:#ff3 !important;
+    }
+  </style>
+</head>
+
+<body>
+  <a-scene>
+
+    <a-assets>
+      <a-mixin id="html" htmlembed="ppu:1024"></a-mixin>
+    </a-assets>
+
+    <a-entity environment="preset:forest"></a-entity>
+
+    <a-entity position="0 1.6 -1">
+      
+      <a-entity class="links" mixin="html" rotation="0 30 0">
+        <h1>First Slide</h1>
+        <section>
+          <h2>1st section</h2>
+          <p>Some HTML</p>
+          <p>Link to <a href="https://iot.hfg-gmuend.de/prototyping-lab" class="button">Prototyping Lab</a></p>
+        </section>
+        <section>
+          <h2>2nd section</h2>
+          <p>More HTML</p>
+          <p>Link to <a href="https://www.hfg-gmuend.de/" class="button">HfG</a></p>
+        </section>
+      </a-entity>
+  
+      <a-entity mixin="html" position="1 0 0">
+        <img class="logo" src="hfg-logo.png">
+        <img class="pic" src="hfg-postcard.jpg">
+        <p>Here's a <a href="https://www.google.de" class="button">Link</a></p>
+      </a-entity>
+  
+      <a-entity mixin="html" position="2 0 0" rotation="0 -30 0">
+        <h1>Bullet Points</h1>
+        <section>
+          <ul>
+            <li>something</li>
+            <li>something else</li>
+            <li>some more stuff</li>
+          </ul>
+        </section>
+        <h1>Numbered List</h1>
+        <section>
+          <ol>
+            <li>something</li>
+            <li>something else</li>
+            <li>some more stuff</li>
+          </ol>
+        </section>
+      </a-entity>
+    </a-entity>
+  
+    <a-entity camera="fov:50" position="0 1.6 0" wasd-controls="false" cursor="rayOrigin: mouse" raycaster="objects:.links"></a-camera>
+    <a-presentation progress-bar aspect-ratio="16:10" use-hash="false">
+      <a-slide>
+          <a-slide-camera position="0.355 1.6 -0.385" rotation="0 30 0"></a-slide-camera>
+      </a-slide>
+      <a-slide>
+          <a-slide-camera position="1 1.6 -0.29"></a-slide-camera>
+      </a-slide>
+      <a-slide>
+          <a-slide-camera position="1.645 1.6 -0.385" rotation="0 -30 0"></a-slide-camera>
+      </a-slide>
+    </a-presentation>
+  
+  </a-scene>
+  <script>
+    document.querySelector('a-scene').renderer.setPixelRatio( 1 );
+  </script>
+</body>
