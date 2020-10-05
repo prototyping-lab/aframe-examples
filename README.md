@@ -17,3 +17,4 @@ Developed at iLab and Prototyping-Lab.
 - [random-sphere](random-sphere)
 - [virtual-hfg](virtual-hfg)
 - [flat-map](flat-map)
+- [3d-slideshow](3d-slideshow)
